@@ -1,0 +1,139 @@
+/* ==========================================================
+   1. REGRAS GERAIS (mais genéricas)
+   ========================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* ==========================================================
+   2. CABEÇALHO
+   ========================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background-color: #1e1e1e;
+}
+
+header > a {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+header nav ul {
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav a {
+    color: #ffffff;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* ==========================================================
+   3. TÍTULO E GALERIA
+   ========================================================== */
+h3 {
+    margin: 48px 0 40px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 18px;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto 40px;
+}
+
+/* Mobile (padrão): um item por linha */
+article {
+    width: 100%;
+}
+
+article img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+article p {
+    margin: 4px 0 0;
+    font-size: 11px;
+    color: #888888;
+    text-align: center;
+}
+
+/* ==========================================================
+   4. MEDIA QUERIES (da menor para a maior tela)
+   ========================================================== */
+
+/* Celular: cabeçalho com logo à esquerda e menu vertical à direita */
+@media (max-width: 670px) {
+    header {
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    header > a {
+        font-size: 40px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    section {
+        width: 90%;
+        gap: 60px;
+    }
+
+    article p {
+        font-size: 16px;
+    }
+}
+
+/* Tablet: dois itens por linha */
+@media (min-width: 768px) {
+    article {
+        width: calc(50% - 10px);
+    }
+}
+
+/* Telas médias: 4 pequenos + 2 grandes */
+@media (min-width: 1200px) {
+    article:nth-child(-n+4) {
+        width: calc(25% - 15px);
+    }
+
+    article:nth-child(n+5) {
+        max-width: 600px;
+    }
+}
+
+/* Telas grandes: 5 pequenos + 1 grande */
+@media (min-width: 1600px) {
+    article:nth-child(-n+5) {
+        width: calc(20% - 16px);
+    }
+}
